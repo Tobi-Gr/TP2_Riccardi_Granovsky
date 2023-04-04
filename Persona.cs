@@ -5,9 +5,9 @@ class Persona{
     public string nombre{get;set;}
     public DateTime fechaNacimiento{get;set;}
     public string email{get;set;}
-    public int edad{get;set;}
+    private int edad{get;set;}
 
-    Persona(int id, string ape, string nom, DateTime fN, string mail){
+    public Persona(int id, string ape, string nom, DateTime fN, string mail){
         dni = id;
         apellido = ape;
         nombre = nom;
@@ -15,10 +15,9 @@ class Persona{
         email = mail;
     }
 
-    public int ObtenerEdad(){
+    public int ObtenerEdad(){ //da mal :(
         DateTime hoy = DateTime.Today;
         DateTime cumpleaños = new DateTime(hoy.Year, fechaNacimiento.Month, fechaNacimiento.Day);
-
         edad = hoy.Year - fechaNacimiento.Year;
         if(cumpleaños>hoy)
             edad--;
